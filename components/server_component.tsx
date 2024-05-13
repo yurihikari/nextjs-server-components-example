@@ -12,6 +12,7 @@ export default async function ServerComponent({ name }: { name?: string }) {
   // Fetch pokemon from https://pokeapi.co/api/v2/ability/{id or name}/
   const data = await fetchPokemon(name);
   const time = new Date().toLocaleTimeString();
+  console.log(time);
 
   return (
     <div>

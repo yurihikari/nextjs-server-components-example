@@ -23,6 +23,7 @@ export default function ClientPokemon({ name = "pikachu" }: { name?: string }) {
       setData(data);
       console.log(data);
     });
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   useEffect(() => {
@@ -36,6 +37,7 @@ export default function ClientPokemon({ name = "pikachu" }: { name?: string }) {
   return (
     <div>
       <h1>Client Component</h1>
+      {/* eslint-disable-next-line @next/next/no-img-element */}
       <img
         alt="pokemon-sprite"
         src={data?.sprites?.front_default}

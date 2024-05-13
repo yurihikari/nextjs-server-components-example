@@ -17,6 +17,7 @@ export default async function ServerComponent({ name }: { name?: string }) {
   return (
     <div>
       <h1>Server Component</h1>
+      {/* eslint-disable-next-line @next/next/no-img-element */}
       <img
         alt="pokemon-sprite"
         src={data?.sprites?.front_default}

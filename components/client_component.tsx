@@ -16,12 +16,21 @@ export default function ClientPokemon({ name = "pikachu" }: { name?: string }) {
   const inputRef = useRef<HTMLInputElement>(null);
   const router = useRouter();
   const [pokemonName, setPokemonName] = useState(name);
+  const [time, setTime] = useState(new Date().toLocaleTimeString());
 
   useEffect(() => {
     fetchPokemon(name).then((data) => {
       setData(data);
       console.log(data);
     });
+  }, []);
+
+  useEffect(() => {
+    const timerId = setInterval(() => {
+      setTime(new Date().toLocaleTimeString());
+    }, 1000);
+
+    return () => clearInterval(timerId);
   }, []);
 
   return (
@@ -56,6 +65,7 @@ export default function ClientPokemon({ name = "pikachu" }: { name?: string }) {
       >
         Go to /pokemon/{pokemonName}
       </button>
+      <p suppressHydrationWarning>The time is {time}</p>
     </div>
   );
 }

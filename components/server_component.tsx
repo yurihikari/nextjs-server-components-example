@@ -11,6 +11,7 @@ async function fetchPokemon(name = "pikachu") {
 export default async function ServerComponent({ name }: { name?: string }) {
   // Fetch pokemon from https://pokeapi.co/api/v2/ability/{id or name}/
   const data = await fetchPokemon(name);
+  const time = new Date().toLocaleTimeString();
 
   return (
     <div>
@@ -24,6 +25,7 @@ export default async function ServerComponent({ name }: { name?: string }) {
       <p>{data.name}</p>
       <p>This component is rendered on the server</p>
       <p>and sent as static HTML to the client.</p>
+      <p>The time is {time}</p>
     </div>
   );
 }
